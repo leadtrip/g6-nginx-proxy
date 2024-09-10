@@ -2,6 +2,8 @@
 
 function buildProjects () {
     echo assembling...
+    # don't always need to clean but sometimes necessary as changing some files isn't noticed by gradle so it doesn't automatically rebuild
+    # ./gradlew clean
     ./gradlew assemble
 }
 
@@ -15,8 +17,14 @@ function composeUp() {
   docker-compose up -d
 }
 
+function removeImages() {
+  docker image rm  g6-nginx-proxy-ng -f
+  docker image rm  g6-nginx-proxy-g6 -f
+}
+
 function __run__() {
   composeDown
+  removeImages
   buildProjects
   composeUp $@
 }

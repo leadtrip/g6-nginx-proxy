@@ -5,11 +5,12 @@ services:
     build:
       context: .
     ports:
-      - 9058:9058
+      - 9070:9070
     extra_hosts:
       - host.docker.internal:host-gateway
 
   ng:
+    container_name: ng
     build:
       context: ./nginx
     ports:

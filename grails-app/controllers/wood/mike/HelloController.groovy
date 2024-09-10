@@ -1,4 +1,8 @@
 package wood.mike
 
-class Hello {
+class HelloController {
+
+    def index() {
+        render 'Hi from grails'
+    }
 }

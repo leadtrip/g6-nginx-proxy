@@ -1,23 +1,7 @@
-## Grails 6.2.0 Documentation
+## Grails 6.2.0 app testing NGINX acting as a reverse proxy
 
-- [User Guide](https://docs.grails.org/6.2.0/guide/index.html)
-- [API Reference](https://docs.grails.org/6.2.0/api/index.html)
-- [Grails Guides](https://guides.grails.org/index.html)
----
+From command line run: `./startup.sh` to bulid both apps with docker compose.
 
-## Feature scaffolding documentation
+Navigate to http://localhost/, this is the NGINX root, click the link to proxy to the grails app
 
-- [Grails Scaffolding Plugin documentation](https://grails.github.io/scaffolding/latest/groovydoc/)
-
-- [https://grails-fields-plugin.github.io/grails-fields/latest/guide/index.html](https://grails-fields-plugin.github.io/grails-fields/latest/guide/index.html)
-
-## Feature asset-pipeline-grails documentation
-
-- [Grails Asset Pipeline Core documentation](https://www.asset-pipeline.com/manual/)
-
-## Feature geb documentation
-
-- [Grails Geb Functional Testing for Grails documentation](https://github.com/grails3-plugins/geb#readme)
-
-- [https://www.gebish.org/manual/current/](https://www.gebish.org/manual/current/)
-
+For this to work on ubuntu I had to define a container name and use this in the proxy_pass url to the grails app.
