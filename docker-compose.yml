@@ -1,0 +1,20 @@
+services:
+
+  g6:
+    container_name: g6
+    build:
+      context: .
+    ports:
+      - 9058:9058
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  ng:
+    build:
+      context: ./nginx
+    ports:
+      - 80:80
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    depends_on:
+      - g6
